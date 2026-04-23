@@ -20,7 +20,7 @@ for i in range(len(new_data)):
             letter_content = letter_file.read()
             new_letter = letter_content.replace("[NAME]", new_data[i]["Name"])
 
-        with smtplib.SMTP("YOUR EMAIL PROVIDER SMTP SERVER ADDRESS") as connection:
+        with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
             connection.starttls()
             connection.login(user=MY_EMAIL, password=PASSWORD)
             connection.sendmail(
