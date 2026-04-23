@@ -4,9 +4,6 @@ import smtplib
 import pandas
 import random
 
-MY_EMAIL = "nguyenduongminh1112006@gmail.com"
-PASSWORD = "ioxmjnuxwhrkbqhs"
-
 MY_EMAIL= os.environ.get(MY_EMAIL)
 PASSWORD = os.environ.get(PASSWORD)
 
@@ -14,7 +11,7 @@ now = dt.datetime.now()
 month = now.month
 day = now.day
 
-data = pandas.read_csv("birthday.csv")
+data = pandas.read_csv("birthdays.csv")
 new_data = data.to_dict("records")
 
 for i in range(len(new_data)):
