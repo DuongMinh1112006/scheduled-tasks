@@ -4,8 +4,8 @@ import smtplib
 import pandas
 import random
 
-MY_EMAIL= os.environ.get("MY_EMAIL")
-PASSWORD = os.environ.get("PASSWORD")
+EMAIL= os.environ.get("MY_EMAIL")
+PASSWORD = os.environ.get("MY_PASSWORD")
 
 now = dt.datetime.now()
 month = now.month
@@ -22,9 +22,9 @@ for i in range(len(new_data)):
 
         with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
             connection.starttls()
-            connection.login(user=MY_EMAIL, password=PASSWORD)
+            connection.login(user=EMAIL, password=PASSWORD)
             connection.sendmail(
-                from_addr=MY_EMAIL,
+                from_addr=EMAIL,
                 to_addrs=new_data[i]["Email"],
                 msg=f"Subject:Happy birthday\n\n{new_letter}"
             )
